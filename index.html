@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wordle (Project 2)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="title">Wordle</h1>
+    <p class="subtitle">6 tries • 5 letters • input + button (project version)</p>
+  </header>
+
+  <main class="app" aria-live="polite">
+    <section class="panel">
+      <div class="statusRow">
+        <div id="status" class="status" role="status"></div>
+        <div class="stats" aria-label="Stats across sessions">
+          <span id="avgGuesses">Avg guesses (wins): —</span>
+          <span class="dot">•</span>
+          <span id="record">W-L: —</span>
+        </div>
+      </div>
+
+      <div id="board" class="board" aria-label="Wordle board"></div>
+
+      <div class="controls" aria-label="Guess controls">
+        <label class="guessLabel" for="guessInput">Enter a 5-letter word</label>
+        <div class="controlRow">
+          <input id="guessInput" class="guessInput" type="text" inputmode="text" autocomplete="off"
+                 autocapitalize="characters" spellcheck="false" maxlength="5"
+                 placeholder="e.g., PRIDE" />
+          <button id="submitBtn" class="btn primary" type="button">Submit</button>
+          <button id="restartBtn" class="btn" type="button" hidden>Restart</button>
+        </div>
+
+        <div class="options">
+          <label class="checkbox">
+            <input id="apiValidate" type="checkbox" />
+            <span>Optional: validate guesses with a free dictionary API</span>
+          </label>
+        </div>
+
+        <p id="helper" class="helper">
+          Tip: Press <kbd>Enter</kbd> to submit. The answer is printed to the console for debugging.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panelTitle">Used letters</h2>
+      <div id="keyboard" class="keyboard" aria-label="Used letter board"></div>
+      <p class="legend" aria-label="Legend">
+        <span class="chip correct">Correct</span>
+        <span class="chip present">Wrong spot</span>
+        <span class="chip absent">Not in word</span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>CS 120 — Project 2: Wordle</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
